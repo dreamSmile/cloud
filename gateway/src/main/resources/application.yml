@@ -1,0 +1,35 @@
+server:
+  port: 5000
+spring:
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  application:
+    name: cloud-gateway
+  main:
+    # Spring Boot 2.1 需要设定
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      # Nacos 服务发现与注册配置
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        #设置与服务注册发现组件结合，这样可以采用服务名的路由策略
+        locator:
+          enabled: true
+      routes:
+        - id: route_product
+          uri: lb://cloud-product-web
+          predicates:
+            - Method=GET,POST
+        - id: route_user
+          uri: lb://cloud-user-web
+          predicates:
+            - Method=GET,POST

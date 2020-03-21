@@ -1,0 +1,17 @@
+# Project exclude paths
+
+
+# Project exclude paths
+/api/order-api/target/
+/api/pay-api/target/
+/api/product-api/target/
+/api/user-api/target/
+/common/target/
+/gateway/target/
+/service/order-service/target/
+/service/pay-service/target/
+/service/product-service/target/
+/service/user-service/target/
+/web/pay-web/target/
+/web/product-web/target/
+/web/user-web/target/

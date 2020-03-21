@@ -1,0 +1,17 @@
+server:
+  port: 5001
+spring:
+  application:
+    name: web-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss

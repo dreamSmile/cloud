@@ -1,0 +1,4 @@
+#服务名与配置文件名必须相同,需要@RefreshScope才能使用，外部配置的使用场景是什么？暂时不适用外部配置
+spring.application.name=cloud-product-service
+spring.cloud.nacos.config.server-addr=127.0.0.1:8848
+spring.cloud.nacos.config.file-extension=yaml

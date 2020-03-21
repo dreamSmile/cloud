@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lida.cloud.mapper.PaymentMapper">
+  <resultMap id="BaseResultMap" type="com.lida.cloud.domain.Payment">
+    <!--@mbg.generated-->
+    <!--@Table shop_payment-->
+    <id column="payment_id" jdbcType="BIGINT" property="paymentId" />
+    <result column="serial_num" jdbcType="VARCHAR" property="serialNum" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="paid_flag" jdbcType="INTEGER" property="paidFlag" />
+    <result column="pay_amount" jdbcType="DECIMAL" property="payAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    payment_id, serial_num, order_id, paid_flag, pay_amount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from shop_payment
+    where payment_id = #{paymentId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from shop_payment
+    where payment_id = #{paymentId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lida.cloud.domain.Payment">
+    <!--@mbg.generated-->
+    insert into shop_payment (payment_id, serial_num, order_id, 
+      paid_flag, pay_amount)
+    values (#{paymentId,jdbcType=BIGINT}, #{serialNum,jdbcType=VARCHAR}, #{orderId,jdbcType=BIGINT}, 
+      #{paidFlag,jdbcType=INTEGER}, #{payAmount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lida.cloud.domain.Payment">
+    <!--@mbg.generated-->
+    insert into shop_payment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="paymentId != null">
+        payment_id,
+      </if>
+      <if test="serialNum != null">
+        serial_num,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="paidFlag != null">
+        paid_flag,
+      </if>
+      <if test="payAmount != null">
+        pay_amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="paymentId != null">
+        #{paymentId,jdbcType=BIGINT},
+      </if>
+      <if test="serialNum != null">
+        #{serialNum,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="paidFlag != null">
+        #{paidFlag,jdbcType=INTEGER},
+      </if>
+      <if test="payAmount != null">
+        #{payAmount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lida.cloud.domain.Payment">
+    <!--@mbg.generated-->
+    update shop_payment
+    <set>
+      <if test="serialNum != null">
+        serial_num = #{serialNum,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="paidFlag != null">
+        paid_flag = #{paidFlag,jdbcType=INTEGER},
+      </if>
+      <if test="payAmount != null">
+        pay_amount = #{payAmount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where payment_id = #{paymentId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lida.cloud.domain.Payment">
+    <!--@mbg.generated-->
+    update shop_payment
+    set serial_num = #{serialNum,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=BIGINT},
+      paid_flag = #{paidFlag,jdbcType=INTEGER},
+      pay_amount = #{payAmount,jdbcType=DECIMAL}
+    where payment_id = #{paymentId,jdbcType=BIGINT}
+  </update>
+</mapper>

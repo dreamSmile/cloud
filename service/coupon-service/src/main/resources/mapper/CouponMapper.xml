@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lida.cloud.mapper.CouponMapper">
+  <resultMap id="BaseResultMap" type="com.lida.cloud.domain.Coupon">
+    <!--@mbg.generated-->
+    <!--@Table shop_coupon-->
+    <id column="coupon_id" jdbcType="BIGINT" property="couponId" />
+    <result column="coupon_price" jdbcType="DECIMAL" property="couponPrice" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="used_flag" jdbcType="INTEGER" property="usedFlag" />
+    <result column="used_time" jdbcType="TIMESTAMP" property="usedTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    coupon_id, coupon_price, user_id, used_flag, used_time, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from shop_coupon
+    where coupon_id = #{couponId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from shop_coupon
+    where coupon_id = #{couponId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lida.cloud.domain.Coupon">
+    <!--@mbg.generated-->
+    insert into shop_coupon (coupon_id, coupon_price, user_id, 
+      used_flag, used_time, create_time
+      )
+    values (#{couponId,jdbcType=BIGINT}, #{couponPrice,jdbcType=DECIMAL}, #{userId,jdbcType=BIGINT}, 
+      #{usedFlag,jdbcType=INTEGER}, #{usedTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lida.cloud.domain.Coupon">
+    <!--@mbg.generated-->
+    insert into shop_coupon
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="couponPrice != null">
+        coupon_price,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="usedFlag != null">
+        used_flag,
+      </if>
+      <if test="usedTime != null">
+        used_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="couponPrice != null">
+        #{couponPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="usedFlag != null">
+        #{usedFlag,jdbcType=INTEGER},
+      </if>
+      <if test="usedTime != null">
+        #{usedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lida.cloud.domain.Coupon">
+    <!--@mbg.generated-->
+    update shop_coupon
+    <set>
+      <if test="couponPrice != null">
+        coupon_price = #{couponPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="usedFlag != null">
+        used_flag = #{usedFlag,jdbcType=INTEGER},
+      </if>
+      <if test="usedTime != null">
+        used_time = #{usedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where coupon_id = #{couponId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lida.cloud.domain.Coupon">
+    <!--@mbg.generated-->
+    update shop_coupon
+    set coupon_price = #{couponPrice,jdbcType=DECIMAL},
+      user_id = #{userId,jdbcType=BIGINT},
+      used_flag = #{usedFlag,jdbcType=INTEGER},
+      used_time = #{usedTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where coupon_id = #{couponId,jdbcType=BIGINT}
+  </update>
+</mapper>
