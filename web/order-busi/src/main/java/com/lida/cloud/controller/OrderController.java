@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/order")
 public class OrderController {
 
-    @Reference
+    @Reference(version = "0.0.1")
     private IOrderService orderService;
 
     @PostMapping("/confirm")

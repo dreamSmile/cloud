@@ -12,11 +12,11 @@
     <artifactId>web</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>order-web</module>
         <module>user-web</module>
         <module>pay-web</module>
         <module>product-web</module>
         <module>coupon-web</module>
+        <module>order-busi</module>
     </modules>
     <dependencies>
         <!-- Spring Boot -->

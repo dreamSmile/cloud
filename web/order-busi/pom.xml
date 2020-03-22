@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>order-web</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>order-busi</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.lida</groupId>
@@ -29,4 +28,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

@@ -27,11 +27,6 @@
             <groupId>com.lida</groupId>
             <artifactId>coupon-api</artifactId>
         </dependency>
-        <!-- Spring Cloud Alibaba -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
