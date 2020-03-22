@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @Data
 public class CouponForm implements Serializable {
 
+    @NotNull(message = "产品单价不得为空")
     private BigDecimal couponPrice;
 
     @NotNull(message = "所属用户不得为空")

@@ -1,5 +1,6 @@
 package com.lida.cloud.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.Data;
@@ -9,7 +10,7 @@ import lombok.Data;
  * @date: 2020/3/21 23:52
  */
 @Data
-public class Coupon {
+public class Coupon implements Serializable {
     private Long couponId;
 
     private BigDecimal couponPrice;

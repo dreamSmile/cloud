@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>coupon-web</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.lida</groupId>
+            <artifactId>coupon-api</artifactId>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

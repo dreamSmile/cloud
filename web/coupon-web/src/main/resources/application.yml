@@ -26,4 +26,4 @@ dubbo:
     port: 8848
   cloud:
     #用于服务消费方订阅服务提供方的应用名称的列表，若需订阅多应用，使用 "," 分割。
-    subscribed-services: cloud-coupon-service
+    subscribed-services: service-coupon
