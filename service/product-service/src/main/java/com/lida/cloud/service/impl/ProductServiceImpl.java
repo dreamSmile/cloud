@@ -45,7 +45,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public void reduce(Long productId, Integer productNum) {
+    public Product reduce(Long productId, Integer productNum) {
         //这里其实最好起码加乐观锁，暂时不考虑该问题
         Product product = productMapper.selectByPrimaryKey(productId);
         if (product == null) {
@@ -60,5 +60,6 @@ public class ProductServiceImpl implements IProductService {
         if (resultNum != 1) {
             throw new ServiceException("减库存失败");
         }
+        return product;
     }
 }

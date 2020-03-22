@@ -1,6 +1,6 @@
 package com.lida.cloud.controller;
 
-import com.lida.cloud.service.impl.IOrderService;
+import com.lida.cloud.service.IOrderService;
 import com.lida.cloud.common.ReMsg;
 import com.lida.cloud.domain.OrderForm;
 import org.apache.dubbo.config.annotation.Reference;
@@ -22,6 +22,6 @@ public class OrderController {
 
     @PostMapping("/confirm")
     public ReMsg confirmOrder(@RequestBody OrderForm orderForm){
-        return orderService.confirmOrder(orderForm);
+        return ReMsg.ok(orderService.confirmOrder(orderForm));
     }
 }

@@ -25,7 +25,7 @@ public enum PayStatus {
     /**
      * 已退款
      */
-    REFUNDED(2),
+    REFUNDED(3),
 
     ;
     private Integer v;

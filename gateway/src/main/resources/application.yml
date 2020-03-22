@@ -26,10 +26,22 @@ spring:
           enabled: true
       routes:
         - id: route_product
-          uri: lb://cloud-product-web
+          uri: lb://web-product
           predicates:
             - Method=GET,POST
         - id: route_user
-          uri: lb://cloud-user-web
+          uri: lb://web-user
+          predicates:
+            - Method=GET,POST
+        - id: route_order
+          uri: lb://web-order
+          predicates:
+            - Method=GET,POST
+        - id: route_coupon
+          uri: lb://web-coupon
+          predicates:
+            - Method=GET,POST
+        - id: route_pay
+          uri: lb://web-pay
           predicates:
             - Method=GET,POST

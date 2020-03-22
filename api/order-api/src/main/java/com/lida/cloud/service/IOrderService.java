@@ -12,5 +12,5 @@ public interface IOrderService {
      * @param orderForm
      * @return
      */
-    boolean confirmOrder(OrderForm orderForm);
+    Long confirmOrder(OrderForm orderForm);
 }

@@ -21,7 +21,7 @@ public interface ICouponService {
      * 使用优惠券
      * @param couponId
      */
-    void use(Long couponId);
+    Coupon use(Long couponId);
 
     /**
      * 通过id查找

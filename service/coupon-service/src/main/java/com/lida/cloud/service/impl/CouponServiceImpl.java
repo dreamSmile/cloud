@@ -40,7 +40,7 @@ public class CouponServiceImpl implements ICouponService {
     }
 
     @Override
-    public void use(Long couponId) {
+    public Coupon use(Long couponId) {
         Coupon coupon = couponMapper.selectByPrimaryKey(couponId);
         if (coupon == null) {
             throw new ServiceException("优惠券不存在");
@@ -51,6 +51,8 @@ public class CouponServiceImpl implements ICouponService {
         if (resultNum != 1) {
             throw new ServiceException("使用优惠券失败");
         }
+
+        return coupon;
     }
 
     @Override

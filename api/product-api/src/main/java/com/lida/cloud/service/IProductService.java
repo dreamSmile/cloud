@@ -18,5 +18,5 @@ public interface IProductService {
      * @param productNum
      * @return
      */
-    void reduce(Long productId, Integer productNum);
+    Product reduce(Long productId, Integer productNum);
 }

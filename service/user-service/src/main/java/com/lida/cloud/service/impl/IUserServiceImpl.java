@@ -30,7 +30,6 @@ public class IUserServiceImpl implements IUserService {
         //暂时先使用明文，不集成安全框架
         User user = new User();
         BeanUtils.copyProperties(userRegister, user);
-        user.setUserMoney(BigDecimal.TEN);
         user.setUserScore(0);
         user.setUserRegTime(LocalDateTime.now());
         user.setUserId(idWorker.nextId());
@@ -53,7 +52,6 @@ public class IUserServiceImpl implements IUserService {
         if (user == null) {
             throw new ServiceException("用户不存在");
         }
-        user.setUserMoney(BigDecimal.ZERO);
         int resultNum = userMapper.updateByPrimaryKey(user);
         if (resultNum != 1) {
             throw new ServiceException("扣余额失败");

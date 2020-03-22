@@ -3,14 +3,6 @@ package com.lida.cloud.exception;
 import com.lida.cloud.common.ReCode;
 import com.lida.cloud.common.ReMsg;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.util.CollectionUtils;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -21,8 +13,8 @@ import java.util.List;
  *
  * @author Administrator
  */
-@Slf4j
-@RestControllerAdvice
+//@Slf4j
+//@RestControllerAdvice
 public class CommonExceptionAdvice {
 
     /**
@@ -32,18 +24,18 @@ public class CommonExceptionAdvice {
      * @param ex
      * @return
      */
-    @ExceptionHandler(ServiceException.class)
+    /*@ExceptionHandler(ServiceException.class)
     public Object serviceException(HttpServletRequest request, ServiceException ex) {
         printLogger(request, ex);
         return ReMsg.error(ex.getCode(), ex.getMessage());
     }
 
-    /**
+    *//**
      * @Vlidated 异常
      * @param e
      * @param request
      * @return
-     */
+     *//*
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public Object handlerValidException(MethodArgumentNotValidException e, HttpServletRequest request) {
         BindingResult bindingResult = e.getBindingResult();
@@ -62,26 +54,26 @@ public class CommonExceptionAdvice {
         return ReMsg.error(ReCode.ERROR, errMsg.toString());
     }
 
-    /**
+    *//**
      * 其他
      *
      * @param request
      * @param ex
      * @return
-     */
+     *//*
     @ExceptionHandler(Exception.class)
     public Object exception(HttpServletRequest request, Exception ex) {
         printLogger(request, ex);
         return ReMsg.error(ReCode.ERROR, "未知异常");
     }
 
-    /**
+    *//**
      *
      * @param req
      * @param e
      * @description 打印日志
      * @version 1.0
-     */
+     *//*
     private void printLogger(HttpServletRequest req, Exception e) {
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String url = req.getRequestURL().toString();
@@ -96,7 +88,7 @@ public class CommonExceptionAdvice {
         log.error("请求参数:" + query + "\n");
         log.error("当前异常如下:\n", e);
         log.error("===========================处理完毕=========================\n");
-    }
+    }*/
 
 
 }

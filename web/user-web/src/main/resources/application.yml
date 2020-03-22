@@ -10,7 +10,7 @@ spring:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
   application:
-    name: cloud-user-web
+    name: web-user
   main:
     # Spring Boot 2.1 需要设定
     allow-bean-definition-overriding: true

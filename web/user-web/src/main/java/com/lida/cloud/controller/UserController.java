@@ -1,7 +1,7 @@
 package com.lida.cloud.controller;
 
 import com.lida.cloud.common.ReMsg;
-import com.lida.cloud.domain.UserDto;
+import com.lida.cloud.domain.User;
 import com.lida.cloud.domain.UserRegister;
 import com.lida.cloud.service.IUserService;
 import org.apache.dubbo.config.annotation.Reference;
@@ -23,7 +23,7 @@ public class UserController {
     private IUserService userService;
 
     @PostMapping(value = "/register")
-    public ReMsg<UserDto> register(@Validated @RequestBody UserRegister userRegister) {
+    public ReMsg<User> register(@Validated @RequestBody UserRegister userRegister) {
         return ReMsg.ok(userService.register(userRegister));
     }
 }
