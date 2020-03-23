@@ -41,6 +41,7 @@ public class OrderServiceImpl implements IOrderService {
      * @param orderForm
      * @return
      */
+    //TODO seata
     @Override
     public Long confirmOrder(OrderForm orderForm) {
         // 1.减库存
