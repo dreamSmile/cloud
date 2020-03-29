@@ -1,14 +1,6 @@
 server:
   port: 5000
 spring:
-  http:
-    encoding:
-      force: true
-      charset: UTF-8
-      enabled: true
-  jackson:
-    time-zone: GMT+8
-    date-format: yyyy-MM-dd HH:mm:ss
   application:
     name: cloud-gateway
   main:
@@ -20,6 +12,15 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
       discovery:
         #设置与服务注册发现组件结合，这样可以采用服务名的路由策略
         locator:
@@ -28,20 +29,20 @@ spring:
         - id: route_product
           uri: lb://web-product
           predicates:
-            - Method=GET,POST
+            - Path=/product**
         - id: route_user
           uri: lb://web-user
           predicates:
             - Method=GET,POST
-        - id: route_order
+        - id: Path=/user**
           uri: lb://web-order
           predicates:
-            - Method=GET,POST
+            - Path=/order**
         - id: route_coupon
           uri: lb://web-coupon
           predicates:
-            - Method=GET,POST
+            - Path=/coupon**
         - id: route_pay
           uri: lb://web-pay
           predicates:
-            - Method=GET,POST
+            - Path=/pay**

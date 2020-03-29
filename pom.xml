@@ -11,6 +11,7 @@
         <module>web</module>
         <module>api</module>
         <module>gateway</module>
+        <module>auth</module>
     </modules>
     <name>cloud</name>
     <packaging>pom</packaging>
