@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * @author: 杜利达
@@ -28,13 +29,18 @@ public class UserServiceApp {
      */
     @Value("${idWorker.machineId}")
     private long machineId;
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
     /**
      * id生成器注入
      *
      * @return .
      */
-    @Bean
+    /*@Bean
     public IDWorker getIdWorker() {
         return new IDWorker(dataCenterId, machineId);
-    }
+    }*/
 }

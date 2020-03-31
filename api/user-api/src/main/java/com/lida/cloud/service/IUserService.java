@@ -1,5 +1,6 @@
 package com.lida.cloud.service;
 
+import com.lida.cloud.domain.LoginForm;
 import com.lida.cloud.domain.User;
 import com.lida.cloud.domain.UserRegister;
 
@@ -29,4 +30,10 @@ public interface IUserService {
      * @return
      */
     void userUserMoney(Long userId);
+
+    /**
+     * 登录
+     * @param loginForm
+     */
+    void login(LoginForm loginForm);
 }

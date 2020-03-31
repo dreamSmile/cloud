@@ -1,6 +1,7 @@
 package com.lida.cloud.controller;
 
 import com.lida.cloud.common.ReMsg;
+import com.lida.cloud.domain.LoginForm;
 import com.lida.cloud.domain.User;
 import com.lida.cloud.domain.UserRegister;
 import com.lida.cloud.service.IUserService;
@@ -25,5 +26,11 @@ public class UserController {
     @PostMapping(value = "/register")
     public ReMsg<User> register(@Validated @RequestBody UserRegister userRegister) {
         return ReMsg.ok(userService.register(userRegister));
+    }
+
+    @PostMapping(value = "/login")
+    public ReMsg login(@Validated @RequestBody LoginForm loginForm) {
+        userService.login(loginForm);
+        return ReMsg.ok(null);
     }
 }

@@ -34,6 +34,7 @@
         <pagehelper.version>1.2.13</pagehelper.version>
         <kryo.version>2.6.8</kryo.version>
         <validation.version>2.0.1.Final</validation.version>
+        <jjwt.version>0.9.0</jjwt.version>
     </properties>
 
     <!--子模块继承后,提供作用:锁定版本+子module不用groupId和version-->
@@ -94,6 +95,11 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.lida</groupId>

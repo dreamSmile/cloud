@@ -1,5 +1,6 @@
 package com.lida.cloud.service.impl;
 
+import com.lida.cloud.domain.LoginForm;
 import com.lida.cloud.domain.User;
 import com.lida.cloud.domain.UserRegister;
 import com.lida.cloud.exception.ServiceException;
@@ -9,6 +10,7 @@ import com.lida.cloud.utils.IDWorker;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -24,12 +26,16 @@ public class IUserServiceImpl implements IUserService {
     private UserMapper userMapper;
     @Autowired
     private IDWorker idWorker;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public User register(UserRegister userRegister) {
-        //暂时先使用明文，不集成安全框架
         User user = new User();
         BeanUtils.copyProperties(userRegister, user);
+
+        user.setUserPassword(bCryptPasswordEncoder.encode(user.getUserPassword()));
+
         user.setUserScore(0);
         user.setUserRegTime(LocalDateTime.now());
         user.setUserId(idWorker.nextId());
@@ -55,6 +61,17 @@ public class IUserServiceImpl implements IUserService {
         int resultNum = userMapper.updateByPrimaryKey(user);
         if (resultNum != 1) {
             throw new ServiceException("扣余额失败");
+        }
+    }
+
+    @Override
+    public void login(LoginForm loginForm) {
+        User user = userMapper.selectByMobile(loginForm.getMobile());
+        if (user == null) {
+            throw new ServiceException("用户不存在，登录失败");
+        }
+        if(!bCryptPasswordEncoder.matches(loginForm.getPassword(),user.getUserPassword())){
+            throw new ServiceException("密码不正确");
         }
     }
 }

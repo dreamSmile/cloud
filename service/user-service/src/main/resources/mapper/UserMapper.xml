@@ -112,4 +112,10 @@
       user_reg_time = #{userRegTime,jdbcType=TIMESTAMP}
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
+  <select id="selectByMobile" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from shop_user
+    where user_mobile = #{mobile,jdbcType=BIGINT}
+  </select>
 </mapper>
