@@ -15,4 +15,9 @@ public class LoginForm implements Serializable {
     private String mobile;
     @NotBlank
     private String password;
+    /**
+     * 登陆来源
+     */
+    @NotBlank
+    private Integer loginFrom;
 }
